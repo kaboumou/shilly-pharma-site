@@ -71,12 +71,12 @@
           <ul class="nav-links">
             <li><a href="/">Home</a></li>
             <li><a href="/products.html" class="active">Products</a></li>
-            <li><a href="#">Partnerships</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a href="/partnerships.html">Partnerships</a></li>
+            <li><a href="/about.html">About Us</a></li>
           </ul>
 
           <div class="nav-actions">
-             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+             <button data-theme-toggle class="theme-toggle" aria-label="Toggle Dark Mode">
                 <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
                 <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
              </button>
@@ -107,7 +107,7 @@
     <main style="padding-bottom: 80px;">
         <section class="hero" style="padding: 40px 0; min-height: auto; background: var(--surface-0);">
             <div class="container" style="text-align: left;">
-                <h1>Product Portfolio</h1>
+                <h1>Our Solutions</h1>
                 <p style="margin: 0; max-width: 600px;">Comprehensive solutions across Wound Care, Wellness, and Ostomy.</p>
             </div>
         </section>
@@ -124,14 +124,16 @@
             <!-- Card -->
             <article class="card product-card" data-category="phase1">
                 <div class="card__media">
-                    <img src="/images/products/silver-alginate.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjEiPjxyZWN0IHg9IjMiIHk9IjMiIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgcng9IjIiIHJ5PSIyIi8+PGxpbmUgeTE9IjEyIiB4Mj0iMjQiIHkyPSIxMiIgc3Ryb2tlPSIjZjVmNWY1Ii8+PC9zdmc+';" alt="Silver Alginate">
-                    <span class="badge badge--coming-soon" style="position: absolute; top: 10px; right: 10px;">Coming Soon</span>
+                    <img src="/images/products/silver-alginate-real.png" alt="Silver Alginate Dressing" loading="lazy">
+                    <span class="badge badge--available" style="position: absolute; top: 12px; right: 12px;">Available</span>
                 </div>
                 <div class="card__content">
                     <h3>Silver Alginate</h3>
-                    <p>Antimicrobial protection for infected wounds.</p>
+                    <p>Antimicrobial protection for infected wounds throughout the healing process.</p>
                 </div>
-                <!-- No footer CTA for coming soon -->
+                 <div class="card__footer">
+                     <button class="btn btn-outline" style="width: 100%" onclick="window.location.href='/contact.html?product=Silver%20Alginate'">Request Quote</button>
+                </div>
             </article>
 
             <!-- Card -->
@@ -148,7 +150,7 @@
                     </div>
                 </div>
                 <div class="card__footer">
-                     <button class="btn btn-outline" style="width: 100%">View Details</button>
+                     <button class="btn btn-outline" style="width: 100%" onclick="window.location.href='/contact.html?product=Purilon%20Gel'">Request Quote</button>
                 </div>
             </article>
 
@@ -163,7 +165,7 @@
                     <p>Promotes healing through osmotic action.</p>
                 </div>
                 <div class="card__footer">
-                     <button class="btn btn-outline" style="width: 100%">View Details</button>
+                     <button class="btn btn-outline" style="width: 100%" onclick="window.location.href='/contact.html?product=Medical%20Honey'">Request Quote</button>
                 </div>
             </article>
         </div>
@@ -182,7 +184,7 @@
                     </div>
                 </div>
                 <div class="card__footer">
-                     <button class="btn btn-outline" style="width: 100%">View Details</button>
+                     <button class="btn btn-outline" style="width: 100%" onclick="window.location.href='/contact.html?product=Advazorb'">Request Quote</button>
                 </div>
             </article>
              <article class="card product-card" data-category="phase1">
@@ -197,7 +199,7 @@
                     </div>
                 </div>
                  <div class="card__footer">
-                     <button class="btn btn-outline" style="width: 100%">View Details</button>
+                      <button class="btn btn-outline" style="width: 100%" onclick="window.location.href='/contact.html?product=Eclypse'">Request Quote</button>
                 </div>
             </article>
         </div>
@@ -213,14 +215,14 @@
         <div class="grid grid-2">
             <!-- Service Card -->
             <article class="card product-card" data-category="phase2" style="grid-column: 1 / -1;">
-                <div style="display: flex; flex-direction: column; md:flex-row; padding: var(--space-lg);">
+                <div style="display: flex; flex-direction: column; md:flex-row; padding: var(--space-xl); overflow: visible;">
                     <div style="flex: 1;">
                          <h3>Weight Loss & Consultation</h3>
                          <p class="text-2">Comprehensive education on what, when, and how to eat. We don't take away delicious traditional meals; we help you balance them.</p>
                          <p style="margin-top: 12px; font-style: italic; color: var(--brand-primary);">"Yes, you can eat your cake and have it. Enjoy meals and lose weight."</p>
                     </div>
                     <div style="margin-top: 20px;">
-                        <button class="btn btn-primary">Book Consultation</button>
+                        <a href="/contact.html" class="btn btn-primary">Book Consultation</a>
                     </div>
                 </div>
             </article>
@@ -238,7 +240,7 @@
                     </div>
                  </div>
                  <div class="card__footer">
-                     <button class="btn btn-outline" style="width: 100%">Details</button>
+                     <a href="/contact.html?product=Black%20Cohosh" class="btn btn-outline" style="width: 100%">Request Quote</a>
                 </div>
             </article>
 
@@ -254,7 +256,7 @@
                     </div>
                  </div>
                  <div class="card__footer">
-                     <button class="btn btn-outline" style="width: 100%">Details</button>
+                     <a href="/contact.html?product=Turmeric%20Ginger" class="btn btn-outline" style="width: 100%">Request Quote</a>
                 </div>
             </article>
         </div>
@@ -275,7 +277,7 @@
                     <h3>Colostomy Care</h3>
                     <p>High quality bags and accessories.</p>
                 </div>
-                <div class="card__footer"><button class="btn btn-outline" style="width: 100%">View Products</button></div>
+                <div class="card__footer"><a href="/products.html#phase3" class="btn btn-outline" style="width: 100%">View Products</a></div>
              </article>
              <article class="card product-card" data-category="phase3">
                  <div class="card__media">
@@ -285,7 +287,7 @@
                     <h3>Ileostomy Care</h3>
                     <p>Reliable and comfortable solutions.</p>
                 </div>
-                 <div class="card__footer"><button class="btn btn-outline" style="width: 100%">View Products</button></div>
+                 <div class="card__footer"><a href="/contact.html?product=Ileostomy%20Care" class="btn btn-outline" style="width: 100%">Request Quote</a></div>
              </article>
              <article class="card product-card" data-category="phase3">
                  <div class="card__media">
@@ -295,7 +297,7 @@
                     <h3>Urostomy Care</h3>
                     <p>Secure management products.</p>
                 </div>
-                 <div class="card__footer"><button class="btn btn-outline" style="width: 100%">View Products</button></div>
+                 <div class="card__footer"><a href="/contact.html?product=Urostomy%20Care" class="btn btn-outline" style="width: 100%">Request Quote</a></div>
              </article>
         </div>
       </section>
@@ -316,7 +318,7 @@
             <ul class="footer-links">
               <li><a href="/">Home</a></li>
               <li><a href="/products.html">Products</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="/contact.html">Contact</a></li>
             </ul>
           </div>
         </div>
@@ -326,6 +328,7 @@
       </div>
     </footer>
 
+    <script src="/js/theme.js" defer></script>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

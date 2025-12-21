@@ -101,7 +101,15 @@ if (filterPills.length > 0) {
             pill.classList.add('active');
             
             const filterValue = pill.getAttribute('data-filter');
-            applyFilters(filterValue, searchInput ? searchInput.value : '');
+            
+            // If "All Products" is clicked, reset search too?
+            // "Add 'Clear' state or All Products resets." behavior
+            if (filterValue === 'all' && searchInput) {
+                searchInput.value = '';
+                applyFilters('all', '');
+            } else {
+                applyFilters(filterValue, searchInput ? searchInput.value.toLowerCase() : '');
+            }
         });
     });
 

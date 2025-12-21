@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700" viewBox="0 0 900 700" fill="none" role="img" aria-label="Silver Alginate dressing illustration">
+  <defs>
+    <!-- Soft shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.18"/>
+    </filter>
+
+    <!-- Card-ish background gradient (very subtle, still transparent overall) -->
+    <linearGradient id="softBg" x1="150" y1="80" x2="750" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EAF7F6" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#F6FAFF" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <!-- Teal accent gradient -->
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#16B3A6"/>
+      <stop offset="1" stop-color="#0B7D86"/>
+    </linearGradient>
+
+    <!-- Neutral box gradient -->
+    <linearGradient id="box" x1="250" y1="160" x2="590" y2="480" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E9EEF3"/>
+    </linearGradient>
+
+    <!-- Dressing pad gradient -->
+    <linearGradient id="pad" x1="520" y1="330" x2="720" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E6ECF2"/>
+    </linearGradient>
+
+    <!-- Silver sparkle gradient -->
+    <radialGradient id="silver" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(690 210) rotate(90) scale(110)">
+      <stop stop-color="#D8DEE8"/>
+      <stop offset="0.45" stop-color="#B6C0CF"/>
+      <stop offset="1" stop-color="#8B95A6"/>
+    </radialGradient>
+
+    <!-- Stroke colors -->
+    <style>
+      .strokeSoft { stroke: rgba(16, 24, 40, 0.10); }
+      .strokeTeal { stroke: rgba(22, 179, 166, 0.75); }
+      .textMain { fill: rgba(16, 24, 40, 0.85); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+      .textMuted { fill: rgba(16, 24, 40, 0.55); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+    </style>
+  </defs>
+
+  <!-- Floating “tile” behind illustration -->
+  <g filter="url(#shadow)">
+    <rect x="140" y="95" width="620" height="510" rx="28" fill="url(#softBg)"/>
+    <rect x="140" y="95" width="620" height="510" rx="28" class="strokeSoft" stroke-width="2"/>
+  </g>
+
+  <!-- Product box -->
+  <g filter="url(#shadow)">
+    <path d="M255 175C255 160.64 266.64 149 281 149H520C534.36 149 546 160.64 546 175V470C546 484.36 534.36 496 520 496H281C266.64 496 255 484.36 255 470V175Z"
+          fill="url(#box)"/>
+    <path d="M255 175C255 160.64 266.64 149 281 149H520C534.36 149 546 160.64 546 175V470C546 484.36 534.36 496 520 496H281C266.64 496 255 484.36 255 470V175Z"
+          class="strokeSoft" stroke-width="2"/>
+
+    <!-- Box top accent band -->
+    <rect x="255" y="149" width="291" height="58" rx="26" fill="url(#teal)" opacity="0.95"/>
+
+    <!-- Label text -->
+    <text x="285" y="187" class="textMain" font-weight="700" font-size="20" fill="white">SILVER ALGINATE</text>
+    <text x="285" y="224" class="textMuted" font-weight="600" font-size="13" fill="rgba(255,255,255,0.85)">Antimicrobial wound dressing</text>
+
+    <!-- Minimal icon on box -->
+    <g transform="translate(285 255)">
+      <rect x="0" y="0" width="230" height="140" rx="18" fill="white" opacity="0.65"/>
+      <rect x="18" y="22" width="74" height="74" rx="16" fill="rgba(22,179,166,0.14)" class="strokeTeal" stroke-width="2"/>
+      <path d="M55 38c10 8 10 28 0 36c-10-8-10-28 0-36Z" fill="rgba(22,179,166,0.65)"/>
+      <path d="M132 38h82" stroke="rgba(16,24,40,0.25)" stroke-width="6" stroke-linecap="round"/>
+      <path d="M132 64h70" stroke="rgba(16,24,40,0.18)" stroke-width="6" stroke-linecap="round"/>
+      <path d="M132 90h58" stroke="rgba(16,24,40,0.12)" stroke-width="6" stroke-linecap="round"/>
+    </g>
+
+    <!-- Small spec lines -->
+    <text x="285" y="430" class="textMain" font-weight="700" font-size="14">For infected & exudating wounds</text>
+    <text x="285" y="454" class="textMuted" font-weight="600" font-size="12">Sterile • Single-use • Multiple sizes</text>
+  </g>
+
+  <!-- Dressing pad (right) -->
+  <g filter="url(#shadow)">
+    <path d="M560 330C560 316.745 570.745 306 584 306H737C750.255 306 761 316.745 761 330V494C761 507.255 750.255 518 737 518H584C570.745 518 560 507.255 560 494V330Z"
+          fill="url(#pad)"/>
+    <path d="M560 330C560 316.745 570.745 306 584 306H737C750.255 306 761 316.745 761 330V494C761 507.255 750.255 518 737 518H584C570.745 518 560 507.255 560 494V330Z"
+          class="strokeSoft" stroke-width="2"/>
+
+    <!-- Inner pad -->
+    <rect x="592" y="340" width="137" height="124" rx="18" fill="white"/>
+    <rect x="606" y="354" width="109" height="96" rx="16" fill="rgba(22,179,166,0.08)" class="strokeTeal" stroke-width="2"/>
+    <path d="M622 402c22-36 54-36 76 0" stroke="rgba(22,179,166,0.55)" stroke-width="6" stroke-linecap="round"/>
+    <text x="592" y="548" class="textMuted" font-weight="700" font-size="12">DRESSING PAD</text>
+  </g>
+
+  <!-- Silver sparkle / “active” indicator -->
+  <g filter="url(#shadow)">
+    <circle cx="700" cy="210" r="68" fill="url(#silver)" opacity="0.95"/>
+    <circle cx="700" cy="210" r="68" class="strokeSoft" stroke-width="2"/>
+    <path d="M700 160l12 36h38l-31 22 12 36-31-22-31 22 12-36-31-22h38l12-36Z"
+          fill="rgba(255,255,255,0.75)"/>
+    <text x="700" y="238" text-anchor="middle" class="textMain" font-weight="800" font-size="12" fill="rgba(16,24,40,0.78)">SILVER</text>
+  </g>
+</svg>
