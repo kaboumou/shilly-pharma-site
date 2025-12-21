@@ -6,250 +6,321 @@
     <title>Products | Shilly Pharma</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        /* Local overrides for Products Page if needed */
+        .filter-pill {
+            padding: 6px 16px;
+            border-radius: var(--radius-pill);
+            background: var(--surface-inset);
+            color: var(--text-2);
+            border: 1px solid transparent;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .filter-pill:hover {
+            background: var(--surface-2);
+            color: var(--text-1);
+        }
+        .filter-pill.active {
+            background: var(--brand-primary);
+            color: var(--text-on-brand);
+        }
+        
+        html[data-theme="dark"] .filter-pill {
+            background: var(--surface-1);
+            border-color: var(--border-1);
+        }
+        html[data-theme="dark"] .filter-pill.active {
+            border-color: transparent;
+        }
+
+        .section-header {
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-sm);
+            border-bottom: 2px solid var(--border-1);
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .section-header h2 {
+            margin-bottom: 0;
+            color: var(--brand-primary);
+        }
+    </style>
   </head>
   <body>
+    <!-- Header -->
     <header>
       <div class="container">
         <nav>
           <a href="/" class="logo">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z"></path>
+                <path d="M2 17L12 22L22 17"></path>
+                <path d="M2 12L12 17L22 12"></path>
             </svg>
             Shilly Pharma
           </a>
           
-          <div class="nav-right">
+          <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/products.html" class="active">Products</a></li>
+            <li><a href="#">Partnerships</a></li>
+            <li><a href="#">About Us</a></li>
+          </ul>
+
+          <div class="nav-actions">
              <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
              </button>
              <button id="menu-toggle" class="menu-toggle" aria-label="Toggle Menu">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
              </button>
-             <ul class="nav-links" id="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/products.html" class="active">Products</a></li>
-                <li><a href="#">Partnerships</a></li>
-                <li><a href="#">About Us</a></li>
-             </ul>
           </div>
         </nav>
       </div>
     </header>
 
-    <main>
-        <section class="hero" style="padding: 60px 0;">
-            <div class="container">
-                <h1>Our Product Portfolio</h1>
-                <p>Comprehensive solutions across Wound Care, Wellness, and Ostomy.</p>
+    <!-- Catalog Toolbar (Sticky) -->
+    <div class="catalog-toolbar">
+        <div class="container toolbar-inner">
+            <div class="search-wrapper">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="product-search" class="search-input" placeholder="Search products...">
+            </div>
+            <div class="filter-group" style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px;">
+                <button class="filter-pill active" data-filter="all">All Products</button>
+                <button class="filter-pill" data-filter="phase1">Wound Care</button>
+                <button class="filter-pill" data-filter="phase2">Wellness</button>
+                <button class="filter-pill" data-filter="phase3">Ostomy</button>
+            </div>
+        </div>
+    </div>
+
+    <main style="padding-bottom: 80px;">
+        <section class="hero" style="padding: 40px 0; min-height: auto; background: var(--surface-0);">
+            <div class="container" style="text-align: left;">
+                <h1>Product Portfolio</h1>
+                <p style="margin: 0; max-width: 600px;">Comprehensive solutions across Wound Care, Wellness, and Ostomy.</p>
             </div>
         </section>
 
       <!-- PHASE 1: WOUND CARE -->
-      <section id="phase1" class="container products-section" style="padding-top: 40px; scroll-margin-top: 80px;">
-        <div style="background: #e3f2fd; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
-            <h2 style="margin: 0; color: #0d47a1;">Phase 1: Advanced Wound Care</h2>
+      <section id="phase1" class="product-section container" style="scroll-margin-top: 140px; margin-top: 40px;">
+        <div class="section-header">
+            <h2>Advanced Wound Care</h2>
+            <span class="badge" style="background: var(--surface-brand-light); color: var(--brand-primary)">Phase 1</span>
         </div>
 
-        <!-- 1. Silver Dressings -->
-        <h3 style="margin-bottom: 20px; color: var(--text-light);">Silver Dressings</h3>
-        <div class="grid" style="margin-top: 20px; margin-bottom: 40px;">
-           <article class="card">
-            <div class="card-image" style="background: #f5f5f5;">
-                <span style="color: #999;">Coming Soon</span>
-            </div>
-            <div class="card-content">
-              <h3>Silver Alginate</h3>
-              <p>Antimicrobial protection for infected wounds.</p>
-            </div>
-          </article>
+        <h3 style="margin-top: 30px; color: var(--text-2); border-left: 4px solid var(--brand-primary); padding-left: 12px;">Dressings & Hydrogels</h3>
+        <div class="grid grid-3" style="margin-top: 20px;">
+            <!-- Card -->
+            <article class="card product-card" data-category="phase1">
+                <div class="card__media">
+                    <img src="/images/products/silver-alginate.jpg" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjEiPjxyZWN0IHg9IjMiIHk9IjMiIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgcng9IjIiIHJ5PSIyIi8+PGxpbmUgeTE9IjEyIiB4Mj0iMjQiIHkyPSIxMiIgc3Ryb2tlPSIjZjVmNWY1Ii8+PC9zdmc+';" alt="Silver Alginate">
+                    <span class="badge badge--coming-soon" style="position: absolute; top: 10px; right: 10px;">Coming Soon</span>
+                </div>
+                <div class="card__content">
+                    <h3>Silver Alginate</h3>
+                    <p>Antimicrobial protection for infected wounds.</p>
+                </div>
+                <!-- No footer CTA for coming soon -->
+            </article>
+
+            <!-- Card -->
+            <article class="card product-card" data-category="phase1">
+                <div class="card__media">
+                    <img src="/images/products/purilon.jpeg" alt="Purilon Gel">
+                    <span class="badge badge--available" style="position: absolute; top: 10px; right: 10px;">Available</span>
+                </div>
+                <div class="card__content">
+                    <h3>Purilon Gel</h3>
+                    <p>Gentle, sterile hydrogel for effective debridement.</p>
+                    <div style="margin-top: auto; font-size: 0.85rem; color: var(--text-2);">
+                        <strong>Format:</strong> 8g Tube
+                    </div>
+                </div>
+                <div class="card__footer">
+                     <button class="btn btn-outline" style="width: 100%">View Details</button>
+                </div>
+            </article>
+
+            <!-- Card -->
+            <article class="card product-card" data-category="phase1">
+                <div class="card__media">
+                    <img src="/images/products/med-honey-1.jpeg" alt="Medical Grade Honey">
+                    <span class="badge badge--available" style="position: absolute; top: 10px; right: 10px;">Available</span>
+                </div>
+                <div class="card__content">
+                    <h3>Medical Grade Honey</h3>
+                    <p>Promotes healing through osmotic action.</p>
+                </div>
+                <div class="card__footer">
+                     <button class="btn btn-outline" style="width: 100%">View Details</button>
+                </div>
+            </article>
         </div>
 
-        <!-- 2. Hydrogels -->
-        <h3 style="margin-bottom: 20px; color: var(--text-light);">Hydrogels</h3>
-        <div class="grid" style="margin-top: 20px; margin-bottom: 40px;">
-          <article class="card">
-            <div class="card-image">
-              <img src="/images/products/purilon.jpeg" alt="Purilon Gel">
-            </div>
-            <div class="card-content">
-              <h3>Purilon Gel</h3>
-              <p>Gentle, sterile hydrogel for effective and gentle debridement.</p>
-              <div class="product-specs">
-                <strong>Format:</strong> 8g Tube
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <!-- 3. Antibacterial Dressings -->
-        <h3 style="margin-bottom: 20px; color: var(--text-light);">Antibacterial Dressings</h3>
-        <div class="grid" style="margin-top: 20px; margin-bottom: 40px;">
-          <article class="card">
-            <div class="card-image">
-              <img src="/images/products/med-honey-1.jpeg" alt="Medical Grade Honey">
-            </div>
-            <div class="card-content">
-              <h3>Medical Grade Honey</h3>
-              <p>Promotes healing through osmotic action.</p>
-            </div>
-          </article>
-           <article class="card">
-            <div class="card-image">
-              <img src="/images/products/triad-1.jpeg" alt="Triad">
-            </div>
-            <div class="card-content">
-              <h3>Triad Hydrophilic Paste</h3>
-              <p>Sterile coating for hard-to-dress areas.</p>
-            </div>
-          </article>
-        </div>
-
-        <!-- 4. Exudate Management -->
-        <h3 style="margin-bottom: 20px; color: var(--text-light);">Exudate Management</h3>
-        <div class="grid" style="margin-top: 20px; margin-bottom: 60px;">
-          <article class="card">
-            <div class="card-image">
-              <img src="/images/products/advazorb-border-1.jpeg" alt="Advazorb Border">
-            </div>
-            <div class="card-content">
-              <h3>Advazorb Border</h3>
-              <p>Hydrophilic foam dressing with soft silicone contact layer.</p>
-               <div class="product-specs">
-                <strong>Sizes:</strong> 10x10, 10x20, 15x15cm
-              </div>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-image">
-              <img src="/images/products/eclypse-border.jpeg" alt="Eclypse Border">
-            </div>
-            <div class="card-content">
-              <h3>Eclypse Border</h3>
-              <p>Super absorbent dressing with CrystaLock technology.</p>
-               <div class="product-specs">
-                <strong>Sizes:</strong> 15x15cm, 10x20cm Oval
-              </div>
-            </div>
-          </article>
+        <h3 style="margin-top: 40px; color: var(--text-2); border-left: 4px solid var(--brand-primary); padding-left: 12px;">Exudate Management</h3>
+        <div class="grid grid-3" style="margin-top: 20px;">
+             <article class="card product-card" data-category="phase1">
+                <div class="card__media">
+                    <img src="/images/products/advazorb-border-1.jpeg" alt="Advazorb Border">
+                </div>
+                <div class="card__content">
+                    <h3>Advazorb Border</h3>
+                    <p>Hydrophilic foam dressing with soft silicone contact layer.</p>
+                     <div style="margin-top: auto; font-size: 0.85rem; color: var(--text-2);">
+                        <strong>Sizes:</strong> 10x10, 10x20, 15x15cm
+                    </div>
+                </div>
+                <div class="card__footer">
+                     <button class="btn btn-outline" style="width: 100%">View Details</button>
+                </div>
+            </article>
+             <article class="card product-card" data-category="phase1">
+                <div class="card__media">
+                    <img src="/images/products/eclypse-border.jpeg" alt="Eclypse Border">
+                </div>
+                <div class="card__content">
+                    <h3>Eclypse Border</h3>
+                    <p>Super absorbent dressing with CrystaLock technology.</p>
+                     <div style="margin-top: auto; font-size: 0.85rem; color: var(--text-2);">
+                        <strong>Sizes:</strong> 15x15cm, 10x20cm
+                    </div>
+                </div>
+                 <div class="card__footer">
+                     <button class="btn btn-outline" style="width: 100%">View Details</button>
+                </div>
+            </article>
         </div>
       </section>
 
       <!-- PHASE 2: WELLNESS -->
-      <section id="phase2" class="container products-section" style="padding-top: 40px; border-top: 1px solid var(--border-color); scroll-margin-top: 80px;">
-         <div style="background: #fff3e0; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
-            <h2 style="margin: 0; color: #e65100;">Phase 2: Wellness</h2>
-            <p style="margin-top: 10px; color: #555;">
-                This section aims to personalize healthier life patterns, prevent chronic diseases, and assist in nurturing families.<br>
-                Our goal is to simplify the science of food, clarify the link between meals, habits, and cravings, and develop personalized lifestyle changes that can be incorporated into daily living.
-            </p>
+      <section id="phase2" class="product-section container" style="scroll-margin-top: 140px; margin-top: 60px;">
+          <div class="section-header">
+            <h2>Wellness & Lifestyle</h2>
+             <span class="badge" style="background: var(--surface-2); color: var(--text-1)">Phase 2</span>
         </div>
-
-        <div class="grid" style="grid-template-columns: 1fr; margin-bottom: 40px;">
-            <div class="card" style="display: flex; flex-direction: column; md:flex-row;">
-                <div class="card-content">
-                    <h3>Weight Loss & Consultation</h3>
-                    <p><strong>Looking for a weight loss plan?</strong> We will not take away your delicious traditional homemade meals. We will educate on what, when, and how to eat healthy.</p>
-                    <p style="margin-top: 10px;"><em>"Yes, you can eat your cake and have it. Enjoy African meals and lose weight."</em></p>
-                    <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
-                    <p><strong>Consultation with a certified diabetes educator</strong> is available with specific focus on whole foods, meal processing, ingredient selection, and food label interpretation.</p>
+        
+        <div class="grid grid-2">
+            <!-- Service Card -->
+            <article class="card product-card" data-category="phase2" style="grid-column: 1 / -1;">
+                <div style="display: flex; flex-direction: column; md:flex-row; padding: var(--space-lg);">
+                    <div style="flex: 1;">
+                         <h3>Weight Loss & Consultation</h3>
+                         <p class="text-2">Comprehensive education on what, when, and how to eat. We don't take away delicious traditional meals; we help you balance them.</p>
+                         <p style="margin-top: 12px; font-style: italic; color: var(--brand-primary);">"Yes, you can eat your cake and have it. Enjoy meals and lose weight."</p>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <button class="btn btn-primary">Book Consultation</button>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </article>
 
-        <h3 style="margin-bottom: 20px; color: var(--text-color);">Women's Health & Supplements</h3>
-        <p style="margin-bottom: 20px; color: var(--text-light);">Women between the ages of 39 and 60 undergo an inevitable life change. Engage us to understand what to expect and why our bodies go through this phase. Supplements can help our bodies push through busy life schedules.</p>
+            <!-- Supplements -->
+            <article class="card product-card" data-category="phase2">
+                 <div class="card__media">
+                    <img src="/images/products/wellness/black-cohosh-1.jpg" alt="Black Cohosh">
+                 </div>
+                 <div class="card__content">
+                    <h3>Black Cohosh</h3>
+                    <p>Supports women's health during life changes.</p>
+                    <div style="margin-top: auto; font-size: 0.85rem; color: var(--text-2);">
+                        <strong>60 Capsules / 540mg</strong>
+                    </div>
+                 </div>
+                 <div class="card__footer">
+                     <button class="btn btn-outline" style="width: 100%">Details</button>
+                </div>
+            </article>
 
-        <div class="grid" style="margin-top: 20px; margin-bottom: 60px;">
-          <!-- Product: Black Cohosh -->
-          <article class="card">
-             <div class="card-image">
-               <img src="/images/products/wellness/black-cohosh-1.jpg" alt="Black Cohosh">
-            </div>
-            <div class="card-content">
-              <h3>Black Cohosh</h3>
-              <p>Supports women's health during life changes.</p>
-              <div class="product-specs">
-                  <strong>Wild & Organic</strong><br>
-                  60 Capsules / 540mg
-              </div>
-            </div>
-          </article>
-          
-           <!-- Product: Turmeric Ginger -->
-           <article class="card">
-             <div class="card-image">
-               <img src="/images/products/wellness/turmeric-ginger-1.jpg" alt="Turmeric Ginger">
-            </div>
-            <div class="card-content">
-              <h3>Turmeric Ginger</h3>
-              <p>Natural anti-inflammatory and digestive support.</p>
-              <div class="product-specs">
-                  <strong>Wild & Organic</strong><br>
-                  120 Capsules
-              </div>
-            </div>
-          </article>
-
-           <!-- Product: Cilantro -->
-           <article class="card">
-             <div class="card-image">
-               <img src="/images/products/wellness/cilantro-1.jpg" alt="Cilantro">
-            </div>
-            <div class="card-content">
-              <h3>Cilantro</h3>
-              <p>Heavy metal detox and digestive aid.</p>
-              <div class="product-specs">
-                  <strong>Wild & Organic</strong><br>
-                  60 Capsules / 800mg
-              </div>
-            </div>
-          </article>
+             <article class="card product-card" data-category="phase2">
+                 <div class="card__media">
+                    <img src="/images/products/wellness/turmeric-ginger-1.jpg" alt="Turmeric Ginger">
+                 </div>
+                 <div class="card__content">
+                    <h3>Turmeric Ginger</h3>
+                    <p>Natural anti-inflammatory and digestive support.</p>
+                    <div style="margin-top: auto; font-size: 0.85rem; color: var(--text-2);">
+                        <strong>120 Capsules</strong>
+                    </div>
+                 </div>
+                 <div class="card__footer">
+                     <button class="btn btn-outline" style="width: 100%">Details</button>
+                </div>
+            </article>
         </div>
       </section>
 
       <!-- PHASE 3: OSTOMY -->
-      <section id="phase3" class="container products-section" style="padding-top: 40px; border-top: 1px solid #eee; scroll-margin-top: 80px;">
-         <div style="background: #e8f5e9; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
-            <h2 style="margin: 0; color: #1b5e20;">Phase 3: Ostomy Care</h2>
+      <section id="phase3" class="product-section container" style="scroll-margin-top: 140px; margin-top: 60px;">
+          <div class="section-header">
+            <h2>Ostomy Care</h2>
+             <span class="badge" style="background: var(--surface-2); color: var(--text-1)">Phase 3</span>
         </div>
-        <div class="grid" style="margin-top: 20px; margin-bottom: 60px;">
-          <article class="card">
-             <div class="card-image" style="background: #f1f8e9;">
-               <h3 style="color: #33691e;">Colostomy</h3>
-            </div>
-            <div class="card-content">
-              <h3>Colostomy Care</h3>
-              <p>High quality bags and accessories.</p>
-            </div>
-          </article>
-           <article class="card">
-             <div class="card-image" style="background: #f1f8e9;">
-               <h3 style="color: #33691e;">Ileostomy</h3>
-            </div>
-            <div class="card-content">
-              <h3>Ileostomy Care</h3>
-              <p>Reliable and comfortable solutions.</p>
-            </div>
-          </article>
-           <article class="card">
-             <div class="card-image" style="background: #f1f8e9;">
-               <h3 style="color: #33691e;">Urostomy</h3>
-            </div>
-            <div class="card-content">
-              <h3>Urostomy Care</h3>
-              <p>Secure management products.</p>
-            </div>
-          </article>
+        <div class="grid grid-3">
+             <article class="card product-card" data-category="phase3">
+                <div class="card__media">
+                     <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg>
+                </div>
+                <div class="card__content">
+                    <h3>Colostomy Care</h3>
+                    <p>High quality bags and accessories.</p>
+                </div>
+                <div class="card__footer"><button class="btn btn-outline" style="width: 100%">View Products</button></div>
+             </article>
+             <article class="card product-card" data-category="phase3">
+                 <div class="card__media">
+                     <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="card__content">
+                    <h3>Ileostomy Care</h3>
+                    <p>Reliable and comfortable solutions.</p>
+                </div>
+                 <div class="card__footer"><button class="btn btn-outline" style="width: 100%">View Products</button></div>
+             </article>
+             <article class="card product-card" data-category="phase3">
+                 <div class="card__media">
+                     <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                </div>
+                <div class="card__content">
+                    <h3>Urostomy Care</h3>
+                    <p>Secure management products.</p>
+                </div>
+                 <div class="card__footer"><button class="btn btn-outline" style="width: 100%">View Products</button></div>
+             </article>
         </div>
       </section>
     </main>
 
+    <!-- Footer -->
     <footer>
       <div class="container">
-        <div class="footer-bottom" style="border-top: none;">
+        <div class="footer-grid">
+          <div>
+            <h3>Shilly Pharma</h3>
+            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+              Committed to excellence in patient care.
+            </p>
+          </div>
+          <div>
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="/">Home</a></li>
+              <li><a href="/products.html">Products</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div style="text-align: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; color: rgba(255,255,255,0.5);">
           &copy; 2025 Shilly Pharma. All rights reserved.
         </div>
       </div>

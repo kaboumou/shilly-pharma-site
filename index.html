@@ -7,155 +7,207 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
   </head>
   <body>
+    <!-- Header -->
     <header>
       <div class="container">
         <nav>
           <a href="/" class="logo">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z"></path>
+                <path d="M2 17L12 22L22 17"></path>
+                <path d="M2 12L12 17L22 12"></path>
             </svg>
             Shilly Pharma
           </a>
           
-          <div class="nav-right">
-             <!-- Theme Toggle -->
+          <!-- Desktop Nav -->
+          <ul class="nav-links">
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/products.html">Products</a></li>
+            <li><a href="#">Partnerships</a></li>
+            <li><a href="#">About Us</a></li>
+          </ul>
+
+          <div class="nav-actions">
              <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
              </button>
-
-             <!-- Hamburger -->
+             <a href="/products.html" class="btn btn-primary desktop-only">Explore Catalog</a>
              <button id="menu-toggle" class="menu-toggle" aria-label="Toggle Menu">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
              </button>
-
-             <ul class="nav-links" id="nav-links">
-                <li><a href="/" class="active">Home</a></li>
-                <li><a href="/products.html">Products</a></li>
-                <li><a href="#">Partnerships</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="/products.html" class="btn-cta">Explore Products</a></li>
-             </ul>
           </div>
         </nav>
       </div>
     </header>
 
     <main>
+      <!-- Hero Section -->
       <section class="hero">
         <div class="container">
+          <span class="badge badge--available" style="margin-bottom: 16px;">Medical-Grade Quality</span>
           <h1>Advanced Solutions for<br>Wound Care & Wellness</h1>
           <p>Providing high-quality medical supplies and holistic wellness solutions for healthcare professionals and patients.</p>
-          <div style="display: flex; gap: 16px; justify-content: center;">
-            <a href="/products.html" class="btn-cta">View Product Catalog</a>
+          <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+            <a href="/products.html" class="btn btn-primary">View Product Catalog</a>
+            <a href="#" class="btn btn-secondary">Contact Sales</a>
+          </div>
+
+          <!-- Trust Indicators -->
+          <div class="trust-bar">
+             <div class="trust-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                <span>Wound Care</span>
+             </div>
+             <span style="opacity: 0.3">•</span>
+             <div class="trust-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <span>Wellness</span>
+             </div>
+             <span style="opacity: 0.3">•</span>
+             <div class="trust-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+                <span>Ostomy</span>
+             </div>
+             <span style="opacity: 0.3">•</span>
+             <div class="trust-item">
+                <span>For Professionals & Patients</span>
+             </div>
           </div>
         </div>
       </section>
 
-      <section class="container products-section">
-        <h2>Our Main Divisions</h2>
-        <div class="grid">
-          <!-- Phase 1: Advanced Wound Care -->
-          <a href="/products.html#phase1" class="card" style="text-decoration: none; color: inherit;">
-            <div class="card-image" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);">
-              <img src="/images/products/purilon.jpeg" alt="Advanced Wound Care">
+      <!-- Main Divisions -->
+      <section class="container" style="padding: 60px 20px;">
+        <div style="text-align: center; margin-bottom: 48px;">
+            <h2>Our Main Divisions</h2>
+            <p>Targeted solutions for specialized care needs.</p>
+        </div>
+        
+        <div class="grid grid-3">
+          <!-- Card 1 -->
+          <article class="card">
+            <div class="card__media">
+                <!-- Using consistent SVG Icon Style -->
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v20M2 12h20"></path> <!-- Plus sign for medical -->
+                    <circle cx="12" cy="12" r="9"></circle>
+                </svg>
             </div>
-            <div class="card-content">
-              <span class="badge" style="background: #e3f2fd; color: #0d47a1;">Phase 1</span>
+            <div class="card__content">
               <h3>Advanced Wound Care</h3>
-              <p>Silver dressings, Hydrogels, Antibacterial, and Exudate Management.</p>
-              <span style="color: var(--primary-color); font-weight: 600; margin-top: 10px; display: block;">View Portfolio &rarr;</span>
+              <ul style="list-style-type: none; margin-bottom: 24px; color: var(--text-2);">
+                  <li>• Silver Dressings</li>
+                  <li>• Hydrogels & Pastes</li>
+                  <li>• Exudate Management</li>
+              </ul>
+              <a href="/products.html#phase1" class="btn btn-outline" style="width: 100%">View Portfolio</a>
             </div>
-          </a>
+          </article>
 
-          <!-- Phase 2: Wellness -->
-          <a href="/products.html#phase2" class="card" style="text-decoration: none; color: inherit;">
-            <div class="card-image" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);">
-               <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#e65100" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-               </svg>
+          <!-- Card 2 -->
+          <article class="card">
+            <div class="card__media">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
             </div>
-            <div class="card-content">
-              <span class="badge" style="background: #fff3e0; color: #e65100;">Phase 2</span>
+            <div class="card__content">
               <h3>Wellness</h3>
-              <p>Weight loss, Diabetes care, and Women's health solutions.</p>
-              <span style="color: var(--primary-color); font-weight: 600; margin-top: 10px; display: block;">View Solutions &rarr;</span>
+              <ul style="list-style-type: none; margin-bottom: 24px; color: var(--text-2);">
+                  <li>• Weight Loss Programs</li>
+                  <li>• Diabetes Care</li>
+                  <li>• Women's Health</li>
+              </ul>
+              <a href="/products.html#phase2" class="btn btn-outline" style="width: 100%">View Solutions</a>
             </div>
-          </a>
+          </article>
 
-          <!-- Phase 3: Ostomy -->
-          <a href="/products.html#phase3" class="card" style="text-decoration: none; color: inherit;">
-            <div class="card-image" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);">
-               <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
+          <!-- Card 3 -->
+          <article class="card">
+            <div class="card__media">
+               <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                 <circle cx="12" cy="12" r="10"></circle>
                 <circle cx="12" cy="12" r="6"></circle>
                 <circle cx="12" cy="12" r="2"></circle>
                </svg>
             </div>
-            <div class="card-content">
-              <span class="badge" style="background: #e8f5e9; color: #1b5e20;">Phase 3</span>
+            <div class="card__content">
               <h3>Ostomy Care</h3>
-              <p>Colostomy, Ileostomy, and Urostomy care products.</p>
-              <span style="color: var(--primary-color); font-weight: 600; margin-top: 10px; display: block;">View Products &rarr;</span>
+              <ul style="list-style-type: none; margin-bottom: 24px; color: var(--text-2);">
+                  <li>• Colostomy Bags</li>
+                  <li>• Ileostomy Solutions</li>
+                  <li>• Urostomy Care</li>
+              </ul>
+              <a href="/products.html#phase3" class="btn btn-outline" style="width: 100%">View Products</a>
             </div>
-          </a>
+          </article>
         </div>
       </section>
 
-      <section style="background: var(--bg-light); padding: 80px 0;">
+      <!-- Upcoming Phase 2 -->
+      <section style="background-color: var(--surface-2); padding: 80px 0;">
         <div class="container">
-          <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-            <h2>Phase 2: Upcoming Wellness Solutions</h2>
-            <p style="margin-top: 20px;">We are expanding our portfolio to cover holistic health needs.</p>
-            <div class="grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 40px; text-align: left;">
-              <div style="background: white; padding: 20px; border-radius: 8px;">
-                <h3>Weight Loss</h3>
-                <p>Comprehensive management programs.</p>
+           <div style="text-align: center; max-width: 800px; margin: 0 auto; margin-bottom: 40px;">
+             <span class="badge badge--coming-soon">Coming Soon</span>
+             <h2 style="margin-top: 16px;">Expanding Holistic Health</h2>
+             <p>We are actively developing new programs to support comprehensive monitoring and health goals.</p>
+           </div>
+           
+           <div class="grid grid-3">
+              <div class="card" style="padding: 24px;">
+                 <h4>Weight Loss</h4>
+                 <p class="text-2">Comprehensive management programs tailored to lifestyle needs.</p>
+                 <span class="badge badge--coming-soon">In Development</span>
               </div>
-              <div style="background: white; padding: 20px; border-radius: 8px;">
-                <h3>Diabetes Care</h3>
-                <p>Prevention and monitoring solutions.</p>
+              <div class="card" style="padding: 24px;">
+                 <h4>Diabetes Care</h4>
+                 <p class="text-2">Prevention strategies and continuous monitoring solutions.</p>
+                 <span class="badge badge--coming-soon">In Development</span>
               </div>
-              <div style="background: white; padding: 20px; border-radius: 8px;">
-                <h3>Women’s Health</h3>
-                <p>Targeted supplements and care.</p>
+              <div class="card" style="padding: 24px;">
+                 <h4>Women’s Health</h4>
+                 <p class="text-2">Targeted supplements and care for every life stage.</p>
+                 <span class="badge badge--coming-soon">In Development</span>
               </div>
-            </div>
-          </div>
+           </div>
         </div>
       </section>
     </main>
 
+    <!-- Footer -->
     <footer>
       <div class="container">
-        <div class="footer-content">
+        <div class="footer-grid">
           <div>
             <h3>Shilly Pharma</h3>
-            <p style="margin-top: 10px; opacity: 0.8;">
-              Committed to excellence in patient care through advanced medical technology.
+            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+              Committed to excellence in patient care through advanced medical technology and holistic solutions.
             </p>
           </div>
           <div>
             <h4>Quick Links</h4>
-            <ul style="list-style: none; margin-top: 10px; opacity: 0.8; line-height: 2;">
+            <ul class="footer-links">
               <li><a href="/">Home</a></li>
               <li><a href="/products.html">Products</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="#">Partnerships</a></li>
+              <li><a href="#">Contact Us</a></li>
             </ul>
           </div>
           <div>
-            <h4>Contact Us</h4>
-            <p style="margin-top: 10px; opacity: 0.8;">
-              <strong>Email:</strong> info@shillypharma.com<br>
-              <strong>Phone:</strong> +1 (555) 123-4567
-            </p>
+            <h4>Contact</h4>
+            <ul class="footer-links">
+                <li><a href="mailto:info@shillypharma.com">info@shillypharma.com</a></li>
+                <li><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+            </ul>
           </div>
         </div>
-        <div class="footer-bottom">
+        <div style="text-align: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; color: rgba(255,255,255,0.5);">
           &copy; 2025 Shilly Pharma. All rights reserved.
         </div>
       </div>

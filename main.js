@@ -1,14 +1,24 @@
 import './style.css'
 
-// --- Theme Toggle Logic ---
+console.log('Shilly Pharma App Loaded');
+
+/* =========================================
+   1. THEME TOGGLE
+   ========================================= */
 const themeToggleBtn = document.getElementById('theme-toggle');
 const rootElement = document.documentElement;
 
-// Check for saved theme preference
+// Initialize Theme
 const savedTheme = localStorage.getItem('theme');
+const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
 if (savedTheme) {
   rootElement.setAttribute('data-theme', savedTheme);
   updateThemeIcon(savedTheme);
+} else if (systemPrefersDark) {
+  // Optional: Auto-set to dark if system prefers, otherwise default is light (no attr)
+  // rootElement.setAttribute('data-theme', 'dark'); 
+  // updateThemeIcon('dark');
 }
 
 if (themeToggleBtn) {
@@ -24,40 +34,129 @@ if (themeToggleBtn) {
 
 function updateThemeIcon(theme) {
   if (!themeToggleBtn) return;
-  // Simple Sun/Moon swap
-  themeToggleBtn.innerHTML = theme === 'dark' 
-    ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>'
-    : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+  
+  const sun = themeToggleBtn.querySelector('.sun-icon');
+  const moon = themeToggleBtn.querySelector('.moon-icon');
+  
+  if (theme === 'dark') {
+      sun.style.display = 'block';
+      moon.style.display = 'none';
+  } else {
+      sun.style.display = 'none';
+      moon.style.display = 'block';
+  }
 }
 
-// --- Mobile Menu Logic ---
+/* =========================================
+   2. MOBILE MENU
+   ========================================= */
 const menuToggle = document.getElementById('menu-toggle');
-const navLinks = document.getElementById('nav-links');
+const navLinksContainer = document.querySelector('.nav-links'); // Using class query
 
-if (menuToggle && navLinks) {
+if (menuToggle && navLinksContainer) {
   menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+    navLinksContainer.classList.toggle('active');
     
-    // Optional: Switch icon from Hamburger to X
-    const isOpen = navLinks.classList.contains('active');
-    menuToggle.innerHTML = isOpen
-      ? '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>'
-      : '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+    // Toggle Icon
+    const isOpen = navLinksContainer.classList.contains('active');
+    updateMenuIcon(isOpen);
   });
 }
 
-// Close menu when clicking a link
-const links = document.querySelectorAll('.nav-links a');
-links.forEach(link => {
-  link.addEventListener('click', () => {
-    if (navLinks) {
-      navLinks.classList.remove('active');
-      // Reset hamburger icon
-      if (menuToggle) {
-        menuToggle.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
-      }
-    }
-  });
+// Close menu when clicking items
+const navItems = document.querySelectorAll('.nav-links a');
+navItems.forEach(link => {
+    link.addEventListener('click', () => {
+        if (navLinksContainer) {
+            navLinksContainer.classList.remove('active');
+            updateMenuIcon(false);
+        }
+    });
 });
 
-console.log('Shilly Pharma Site Loaded');
+function updateMenuIcon(isOpen) {
+    if (!menuToggle) return;
+    menuToggle.innerHTML = isOpen
+      ? '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>'
+      : '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+}
+
+
+/* =========================================
+   3. PRODUCT FILTERING (Catalog)
+   ========================================= */
+const filterPills = document.querySelectorAll('.filter-pill');
+const productSections = document.querySelectorAll('.product-section');
+const productCards = document.querySelectorAll('.product-card');
+const searchInput = document.getElementById('product-search');
+
+if (filterPills.length > 0) {
+    
+    // Filter by Category
+    filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            // Remove active from all
+            filterPills.forEach(p => p.classList.remove('active'));
+            // Add active to clicked
+            pill.classList.add('active');
+            
+            const filterValue = pill.getAttribute('data-filter');
+            applyFilters(filterValue, searchInput ? searchInput.value : '');
+        });
+    });
+
+    // Search Filter
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const searchValue = e.target.value.toLowerCase();
+            const activePill = document.querySelector('.filter-pill.active');
+            const activeFilter = activePill ? activePill.getAttribute('data-filter') : 'all';
+            
+            applyFilters(activeFilter, searchValue);
+        });
+    }
+}
+
+function applyFilters(category, searchText) {
+    // Logic:
+    // 1. If Category == 'all', show all sections, but filter cards inside them by search
+    // 2. If Category != 'all', hide other sections, show target section, filter cards by search
+    
+    productSections.forEach(section => {
+        const sectionId = section.id;
+        
+        // Determine Visibility based on Category
+        let isSectionVisible = (category === 'all' || category === sectionId);
+        
+        if (isSectionVisible) {
+            section.style.display = 'block';
+            
+            // Now filter cards within this visible section
+            const cards = section.querySelectorAll('.product-card');
+            let hasVisibleCards = false;
+            
+            cards.forEach(card => {
+                const title = card.querySelector('h3')?.innerText.toLowerCase() || '';
+                const desc = card.querySelector('p')?.innerText.toLowerCase() || '';
+                const isMatch = title.includes(searchText) || desc.includes(searchText);
+                
+                if (isMatch) {
+                    card.parentElement.style.display = 'block'; // Ensure grid item is visible? (Card is the grid item usually)
+                    card.style.display = 'flex'; // Card display
+                    hasVisibleCards = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // If Text Search hides all cards in a section, should we hide the section title?
+            // Optional Polish: Hide section if no cards match search
+             if (!hasVisibleCards && searchText.length > 0) {
+                 section.style.display = 'none';
+             }
+             
+        } else {
+            section.style.display = 'none';
+        }
+    });
+}
