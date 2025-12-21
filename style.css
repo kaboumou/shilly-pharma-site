@@ -413,6 +413,14 @@ nav {
   color: var(--text-1);
 }
 
+/* Icon Toggling Logic */
+html[data-theme="dark"] .sun-icon {
+    display: block !important;
+}
+html[data-theme="dark"] .moon-icon {
+    display: none !important;
+}
+
 /* Mobile Nav */
 .menu-toggle { display: none; }
 
