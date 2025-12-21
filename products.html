@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Products | Shilly Pharma</title>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -35,78 +34,58 @@
     <main>
         <section class="hero" style="padding: 60px 0;">
             <div class="container">
-                <h1>Our Product Catalog</h1>
-                <p>Specialized wound care solutions for healthcare professionals.</p>
+                <h1>Our Product Portfolio</h1>
+                <p>Comprehensive solutions across Wound Care, Wellness, and Ostomy.</p>
             </div>
         </section>
 
-      <section class="container products-section" style="padding-top: 40px;">
-        
-        <!-- Category: Hydrogels -->
-        <h2 id="hydrogels" style="margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #eee; padding-bottom: 10px; scroll-margin-top: 100px;">Hydrogels</h2>
-        <div class="grid" style="margin-top: 20px; margin-bottom: 60px;">
+      <!-- PHASE 1: WOUND CARE -->
+      <section id="phase1" class="container products-section" style="padding-top: 40px; scroll-margin-top: 80px;">
+        <div style="background: #e3f2fd; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+            <h2 style="margin: 0; color: #0d47a1;">Phase 1: Advanced Wound Care</h2>
+        </div>
+
+        <!-- 1. Silver Dressings -->
+        <h3 style="margin-bottom: 20px; color: var(--text-light);">Silver Dressings</h3>
+        <div class="grid" style="margin-top: 20px; margin-bottom: 40px;">
+           <article class="card">
+            <div class="card-image" style="background: #f5f5f5;">
+                <span style="color: #999;">Coming Soon</span>
+            </div>
+            <div class="card-content">
+              <h3>Silver Alginate</h3>
+              <p>Antimicrobial protection for infected wounds.</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- 2. Hydrogels -->
+        <h3 style="margin-bottom: 20px; color: var(--text-light);">Hydrogels</h3>
+        <div class="grid" style="margin-top: 20px; margin-bottom: 40px;">
           <article class="card">
             <div class="card-image">
               <img src="/images/products/purilon.jpeg" alt="Purilon Gel">
             </div>
             <div class="card-content">
               <h3>Purilon Gel</h3>
-              <p>This is a gentle, sterile hydrogel consisting of natural ingredients (purified water, sodium carboxymethylcellulose and calcium alginate) without any additives. It promotes wound healing by effective and gentle debridement.</p>
-              <p style="margin-top: 10px;">The gel may be used throughout the healing process to provide a moist healing environment.</p>
+              <p>Gentle, sterile hydrogel for effective and gentle debridement.</p>
               <div class="product-specs">
-                <strong>Indications:</strong> Necrotic and slough wounds (leg ulcers, pressure ulcers, non-infected diabetic foot ulcers, 1st/2nd degree burns).<br>
-                <strong>Available Size:</strong> 8g
+                <strong>Format:</strong> 8g Tube
               </div>
             </div>
           </article>
         </div>
 
-        <!-- Category: Exudate Management -->
-        <h2 id="exudate" style="margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #eee; padding-bottom: 10px; scroll-margin-top: 100px;">Exudate Management</h2>
-        <div class="grid" style="margin-top: 20px; margin-bottom: 60px;">
-          <article class="card">
-            <div class="card-image">
-              <img src="/images/products/advazorb-border-1.jpeg" alt="Advazorb Border">
-            </div>
-            <div class="card-content">
-              <h3>Advazorb Border</h3>
-              <p>This is a foam dressing with soft perforated silicon wound contact layer and adhesive border. Designed for moderate to low exudating wounds.</p>
-              <p style="margin-top: 10px;">Offers atraumatic experience to the wound bed; its self-adhesive border dressing comfortably stays in place minimizing potential for maceration.</p>
-              <div class="product-specs">
-                <strong>Available Sizes:</strong><br>
-                • 10cm x 10cm<br>
-                • 10cm x 20cm<br>
-                • 15cm x 15cm
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-image">
-              <img src="/images/products/eclypse-border.jpeg" alt="Eclypse Border">
-            </div>
-            <div class="card-content">
-              <h3>Eclypse Border</h3>
-              <p>High absorbent CrystaLock layer and soft silicon contact layer designed for moderate to high exuding wounds.</p>
-              <div class="product-specs">
-                <strong>Available Sizes:</strong><br>
-                • 15cm x 15cm<br>
-                • 10cm x 20cm (Oval)
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <!-- Category: Antimicrobials -->
-        <h2 id="antimicrobials" style="margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #eee; padding-bottom: 10px; scroll-margin-top: 100px;">Antimicrobials & Specialty</h2>
-        <div class="grid" style="margin-top: 20px; margin-bottom: 60px;">
+        <!-- 3. Antibacterial Dressings -->
+        <h3 style="margin-bottom: 20px; color: var(--text-light);">Antibacterial Dressings</h3>
+        <div class="grid" style="margin-top: 20px; margin-bottom: 40px;">
           <article class="card">
             <div class="card-image">
               <img src="/images/products/med-honey-1.jpeg" alt="Medical Grade Honey">
             </div>
             <div class="card-content">
               <h3>Medical Grade Honey</h3>
-              <p>Promotes healing in chronic and acute wounds through osmotic action and pH management.</p>
+              <p>Promotes healing through osmotic action.</p>
             </div>
           </article>
            <article class="card">
@@ -115,73 +94,117 @@
             </div>
             <div class="card-content">
               <h3>Triad Hydrophilic Paste</h3>
-              <p>Sterile coating for hard-to-dress areas. Maintains a moist wound environment.</p>
+              <p>Sterile coating for hard-to-dress areas.</p>
             </div>
           </article>
         </div>
 
-        <!-- Category: Wellness -->
-        <h2 id="wellness" style="margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #eee; padding-bottom: 10px; scroll-margin-top: 100px;">Wellness (Phase 2)</h2>
+        <!-- 4. Exudate Management -->
+        <h3 style="margin-bottom: 20px; color: var(--text-light);">Exudate Management</h3>
         <div class="grid" style="margin-top: 20px; margin-bottom: 60px;">
           <article class="card">
-             <div class="card-image" style="background: #f0fff4;">
-               <!-- Icons/Placeholder -->
-               <h3 style="color: var(--accent-color);">Weight Loss</h3>
+            <div class="card-image">
+              <img src="/images/products/advazorb-border-1.jpeg" alt="Advazorb Border">
+            </div>
+            <div class="card-content">
+              <h3>Advazorb Border</h3>
+              <p>Hydrophilic foam dressing with soft silicone contact layer.</p>
+               <div class="product-specs">
+                <strong>Sizes:</strong> 10x10, 10x20, 15x15cm
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-image">
+              <img src="/images/products/eclypse-border.jpeg" alt="Eclypse Border">
+            </div>
+            <div class="card-content">
+              <h3>Eclypse Border</h3>
+              <p>Super absorbent dressing with CrystaLock technology.</p>
+               <div class="product-specs">
+                <strong>Sizes:</strong> 15x15cm, 10x20cm Oval
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- PHASE 2: WELLNESS -->
+      <section id="phase2" class="container products-section" style="padding-top: 40px; border-top: 1px solid #eee; scroll-margin-top: 80px;">
+         <div style="background: #fff3e0; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+            <h2 style="margin: 0; color: #e65100;">Phase 2: Wellness</h2>
+        </div>
+        <div class="grid" style="margin-top: 20px; margin-bottom: 60px;">
+          <article class="card">
+             <div class="card-image" style="background: #fff8e1;">
+               <h3 style="color: #ff6f00;">Weight Loss</h3>
             </div>
             <div class="card-content">
               <h3>Weight Loss Management</h3>
-              <p>Comprehensive solutions coming soon.</p>
+              <p>Comprehensive tailored programs.</p>
             </div>
           </article>
            <article class="card">
-             <div class="card-image" style="background: #f0fff4;">
-               <h3 style="color: var(--accent-color);">Diabetes</h3>
+             <div class="card-image" style="background: #fff8e1;">
+               <h3 style="color: #ff6f00;">Diabetes</h3>
             </div>
             <div class="card-content">
               <h3>Diabetes Care</h3>
-              <p>Prevention and monitoring products.</p>
+              <p>Prevention and monitoring.</p>
             </div>
           </article>
            <article class="card">
-             <div class="card-image" style="background: #f0fff4;">
-               <h3 style="color: var(--accent-color);">Women's Health</h3>
+             <div class="card-image" style="background: #fff8e1;">
+               <h3 style="color: #ff6f00;">Women's Health</h3>
             </div>
             <div class="card-content">
               <h3>Women's Health</h3>
-              <p>Specialized care and supplements.</p>
+              <p>Specialized care solutions.</p>
             </div>
           </article>
         </div>
+      </section>
 
+      <!-- PHASE 3: OSTOMY -->
+      <section id="phase3" class="container products-section" style="padding-top: 40px; border-top: 1px solid #eee; scroll-margin-top: 80px;">
+         <div style="background: #e8f5e9; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+            <h2 style="margin: 0; color: #1b5e20;">Phase 3: Ostomy Care</h2>
+        </div>
+        <div class="grid" style="margin-top: 20px; margin-bottom: 60px;">
+          <article class="card">
+             <div class="card-image" style="background: #f1f8e9;">
+               <h3 style="color: #33691e;">Colostomy</h3>
+            </div>
+            <div class="card-content">
+              <h3>Colostomy Care</h3>
+              <p>High quality bags and accessories.</p>
+            </div>
+          </article>
+           <article class="card">
+             <div class="card-image" style="background: #f1f8e9;">
+               <h3 style="color: #33691e;">Ileostomy</h3>
+            </div>
+            <div class="card-content">
+              <h3>Ileostomy Care</h3>
+              <p>Reliable and comfortable solutions.</p>
+            </div>
+          </article>
+           <article class="card">
+             <div class="card-image" style="background: #f1f8e9;">
+               <h3 style="color: #33691e;">Urostomy</h3>
+            </div>
+            <div class="card-content">
+              <h3>Urostomy Care</h3>
+              <p>Secure management products.</p>
+            </div>
+          </article>
+        </div>
       </section>
     </main>
 
     <footer>
       <div class="container">
-        <div class="footer-content">
-          <div>
-            <h3>Shilly Pharma</h3>
-            <p style="margin-top: 10px; opacity: 0.8;">
-              Committed to excellence in patient care through advanced medical technology.
-            </p>
-          </div>
-          <div>
-            <h4>Quick Links</h4>
-            <ul style="list-style: none; margin-top: 10px; opacity: 0.8; line-height: 2;">
-              <li><a href="/">Home</a></li>
-              <li><a href="/products.html">Products</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4>Contact Us</h4>
-            <p style="margin-top: 10px; opacity: 0.8;">
-              <strong>Email:</strong> info@shillypharma.com<br>
-              <strong>Phone:</strong> +1 (555) 123-4567
-            </p>
-          </div>
-        </div>
-        <div class="footer-bottom">
+        <div class="footer-bottom" style="border-top: none;">
           &copy; 2025 Shilly Pharma. All rights reserved.
         </div>
       </div>
