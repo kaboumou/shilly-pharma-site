@@ -90,6 +90,27 @@ html[data-theme="dark"] {
     color-scheme: dark;
 }
 
+/* Explicit Light Mode - Overrides system dark preference when user selects light */
+html[data-theme="light"] {
+    --brand-primary: #007680;
+    --brand-secondary: #004d40;
+    --brand-accent: #26a69a;
+    --surface-0: #f8fafb;
+    --surface-1: #ffffff;
+    --surface-2: #e0f2f1;
+    --surface-inset: #f1f3f4;
+    --surface-brand-light: #e0f2f1;
+    --text-1: #1a1f36;
+    --text-2: #4f566b;
+    --text-3: #8792a2;
+    --text-on-brand: #ffffff;
+    --border-1: #e3e8ee;
+    --shadow-1: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-2: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    --shadow-3: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    color-scheme: light;
+}
+
 /* =========================================
    2. RESET & BASE
    ========================================= */
