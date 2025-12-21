@@ -22,22 +22,22 @@
   --font-main: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-/* Dark Mode Overrides */
+/* Dark Mode Overrides - Sophisticated Charcoal */
 :root[data-theme="dark"] {
   --primary-color: #4db6ac;
   --secondary-color: #80cbc4;
   --accent-color: #26a69a;
-  --text-color: #e0e0e0;
-  --text-light: #b0bec5;
-  --bg-color: #121212;
-  --bg-light: #1e1e1e;
-  --white: #1e1e1e; 
-  --card-bg: #1e1e1e;
-  --nav-text: #ffffff;
-  --border-color: #333333;
-  --footer-bg: #000000;          /* Black for Dark Mode Footer */
-  --shadow-sm: 0 2px 4px rgba(0,0,0,0.5);
-  --shadow-md: 0 4px 6px rgba(0,0,0,0.7);
+  --text-color: #e8eaed;
+  --text-light: #9aa0a6;
+  --bg-color: #0A0E27;           /* Deep charcoal instead of black */
+  --bg-light: #1a1f3a;           /* Slightly lighter charcoal */
+  --white: #1a1f3a; 
+  --card-bg: #1a1f3a;
+  --nav-text: #e8eaed;
+  --border-color: #2d3250;
+  --footer-bg: #050817;          /* Very dark charcoal */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
+  --shadow-md: 0 8px 16px rgba(0,0,0,0.6);
 }
 
 /* =========================================
@@ -57,17 +57,28 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Typography */
+/* Typography - Enhanced Hierarchy */
 h1, h2, h3 {
   line-height: 1.2;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: var(--text-color); /* Ensure headings use var */
+  color: var(--text-color);
+  letter-spacing: -0.02em; /* Tighter, more professional */
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; color: var(--primary-color); }
-h3 { font-size: 1.5rem; }
+h1 { 
+  font-size: 3rem; /* Larger for impact */
+  font-weight: 800;
+}
+h2 { 
+  font-size: 2.25rem; 
+  color: var(--primary-color);
+  font-weight: 700;
+}
+h3 { 
+  font-size: 1.5rem;
+  font-weight: 600;
+}
 
 a {
   text-decoration: none;
@@ -192,27 +203,33 @@ nav {
   }
 }
 
-/* Hero Section */
+/* Hero Section - Enhanced */
 .hero {
-  background: var(--bg-light);
-  padding: 60px 0;
+  background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-color) 100%);
+  min-height: 65vh; /* Taller, more impactful */
+  padding: 80px 0;
   text-align: center;
+  display: flex;
+  align-items: center;
   transition: background-color 0.3s;
 }
 
 .hero h1 {
-  font-size: 3.5rem;
-  margin-bottom: 20px;
+  font-size: 4rem; /* Much larger */
+  margin-bottom: 24px;
+  font-weight: 800;
   background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hero p {
-  font-size: 1.25rem;
+  font-size: 1.35rem; /* Slightly larger */
   color: var(--text-light);
-  max-width: 600px;
+  max-width: 650px;
   margin: 0 auto 40px;
+  line-height: 1.6;
 }
 
 /* Products Grid */
@@ -242,24 +259,24 @@ nav {
 .card {
   background: var(--card-bg);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md); /* Stronger shadows for depth */
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
   border: 1px solid var(--border-color);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-6px); /* More pronounced lift */
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
 }
 
 .card-image {
-  height: 180px;
-  background: var(--bg-light);
+  height: 200px; /* Slightly taller for better proportions */
+  background: transparent; /* Remove gray background */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 15px;
+  padding: 20px; /* More generous padding */
   transition: background-color 0.3s;
 }
 
@@ -267,6 +284,9 @@ nav {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+  background: white; /* White background on the image itself */
+  border-radius: 8px;
+  padding: 12px; /* Padding around product */
 }
 
 .card-content {
