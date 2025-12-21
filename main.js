@@ -5,6 +5,9 @@ console.log('Shilly Pharma App Loaded');
 /* =========================================
    1. THEME TOGGLE (Consolidated)
    ========================================= */
+/* =========================================
+   1. THEME TOGGLE (Consolidated)
+   ========================================= */
 (function initTheme() {
   const STORAGE_KEY = "theme";
   const root = document.documentElement;
@@ -25,17 +28,27 @@ console.log('Shilly Pharma App Loaded');
   // Apply immediately
   setTheme(getPreferredTheme());
 
-  // Wire up all toggle buttons (handles desktop & mobile duplicates)
-  window.addEventListener("DOMContentLoaded", () => {
+  // Function to wire up buttons
+  function wireUpButtons() {
     const toggles = document.querySelectorAll("[data-theme-toggle]");
-    
     toggles.forEach(btn => {
-      btn.addEventListener("click", () => {
+      // Remove any existing listeners to be safe (though this runs once)
+      const clonedBtn = btn.cloneNode(true);
+      btn.parentNode.replaceChild(clonedBtn, btn);
+      
+      clonedBtn.addEventListener("click", () => {
         const current = root.dataset.theme === "dark" ? "dark" : "light";
         setTheme(current === "dark" ? "light" : "dark");
       });
     });
-  });
+  }
+
+  // Handle Race Condition: Run immediately if DOM is ready
+  if (document.readyState === "loading") {
+    window.addEventListener("DOMContentLoaded", wireUpButtons);
+  } else {
+    wireUpButtons();
+  }
 })();
 
 /* =========================================
