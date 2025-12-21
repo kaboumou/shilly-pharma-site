@@ -8,10 +8,24 @@ console.log('Shilly Pharma App Loaded');
 /* =========================================
    1. THEME TOGGLE (Consolidated)
    ========================================= */
+/* =========================================
+   1. THEME TOGGLE (Consolidated & Robust)
+   ========================================= */
 (function initTheme() {
   const STORAGE_KEY = "theme";
   const root = document.documentElement;
 
+  // 1. FORCE INJECT CSS (Bypasses caching/loading issues)
+  const style = document.createElement("style");
+  style.innerHTML = `
+      html[data-theme="dark"] .sun-icon { display: block !important; }
+      html[data-theme="dark"] .moon-icon { display: none !important; }
+      html:not([data-theme="dark"]) .sun-icon { display: none !important; }
+      html:not([data-theme="dark"]) .moon-icon { display: block !important; }
+  `;
+  document.head.appendChild(style);
+
+  // 2. CORE LOGIC
   function setTheme(theme) {
     root.dataset.theme = theme;
     localStorage.setItem(STORAGE_KEY, theme);
@@ -28,27 +42,18 @@ console.log('Shilly Pharma App Loaded');
   // Apply immediately
   setTheme(getPreferredTheme());
 
-  // Function to wire up buttons
-  function wireUpButtons() {
-    const toggles = document.querySelectorAll("[data-theme-toggle]");
-    toggles.forEach(btn => {
-      // Remove any existing listeners to be safe (though this runs once)
-      const clonedBtn = btn.cloneNode(true);
-      btn.parentNode.replaceChild(clonedBtn, btn);
-      
-      clonedBtn.addEventListener("click", () => {
-        const current = root.dataset.theme === "dark" ? "dark" : "light";
-        setTheme(current === "dark" ? "light" : "dark");
-      });
-    });
-  }
-
-  // Handle Race Condition: Run immediately if DOM is ready
-  if (document.readyState === "loading") {
-    window.addEventListener("DOMContentLoaded", wireUpButtons);
-  } else {
-    wireUpButtons();
-  }
+  // 3. GLOBAL EVENT DELEGATION (Bypasses DOM ready / wiring race conditions)
+  document.addEventListener("click", (e) => {
+    // Check if the clicked element OR any parent is the toggle button
+    const toggleBtn = e.target.closest("[data-theme-toggle]");
+    
+    if (toggleBtn) {
+      e.preventDefault(); // Safety preventing default button behavior
+      const current = root.dataset.theme === "dark" ? "dark" : "light";
+      const next = current === "dark" ? "light" : "dark";
+      setTheme(next);
+    }
+  });
 })();
 
 /* =========================================
