@@ -1,0 +1,7 @@
+# Force Rebuild Verification
+
+Build timestamp: 2025-12-21 01:39:10 PST
+Theme toggle fix applied: YES
+Icon CSS fix applied: YES
+
+If you can read this file in your browser at `/BUILD_INFO.txt`, your deployment is updated.
