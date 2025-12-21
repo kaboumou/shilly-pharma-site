@@ -3,49 +3,40 @@ import './style.css'
 console.log('Shilly Pharma App Loaded');
 
 /* =========================================
-   1. THEME TOGGLE
+   1. THEME TOGGLE (Consolidated)
    ========================================= */
-const themeToggleBtn = document.getElementById('theme-toggle');
-const rootElement = document.documentElement;
+(function initTheme() {
+  const STORAGE_KEY = "theme";
+  const root = document.documentElement;
 
-// Initialize Theme
-const savedTheme = localStorage.getItem('theme');
-const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-if (savedTheme) {
-  rootElement.setAttribute('data-theme', savedTheme);
-  updateThemeIcon(savedTheme);
-} else if (systemPrefersDark) {
-  // Optional: Auto-set to dark if system prefers, otherwise default is light (no attr)
-  // rootElement.setAttribute('data-theme', 'dark'); 
-  // updateThemeIcon('dark');
-}
-
-if (themeToggleBtn) {
-  themeToggleBtn.addEventListener('click', () => {
-    const currentTheme = rootElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    rootElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateThemeIcon(newTheme);
-  });
-}
-
-function updateThemeIcon(theme) {
-  if (!themeToggleBtn) return;
-  
-  const sun = themeToggleBtn.querySelector('.sun-icon');
-  const moon = themeToggleBtn.querySelector('.moon-icon');
-  
-  if (theme === 'dark') {
-      sun.style.display = 'block';
-      moon.style.display = 'none';
-  } else {
-      sun.style.display = 'none';
-      moon.style.display = 'block';
+  function setTheme(theme) {
+    root.dataset.theme = theme;
+    localStorage.setItem(STORAGE_KEY, theme);
   }
-}
+
+  function getPreferredTheme() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === "dark" || saved === "light") return saved;
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  }
+
+  // Apply immediately
+  setTheme(getPreferredTheme());
+
+  // Wire up all toggle buttons (handles desktop & mobile duplicates)
+  window.addEventListener("DOMContentLoaded", () => {
+    const toggles = document.querySelectorAll("[data-theme-toggle]");
+    
+    toggles.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const current = root.dataset.theme === "dark" ? "dark" : "light";
+        setTheme(current === "dark" ? "light" : "dark");
+      });
+    });
+  });
+})();
 
 /* =========================================
    2. MOBILE MENU
