@@ -14,6 +14,7 @@
   --card-bg: #ffffff;
   --nav-text: #333333;
   --border-color: #e0e0e0;
+  --footer-bg: #00251a;          /* Deep Teal for Light Mode Footer */
   --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
   --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
   --radius-md: 8px;
@@ -34,6 +35,7 @@
   --card-bg: #1e1e1e;
   --nav-text: #ffffff;
   --border-color: #333333;
+  --footer-bg: #000000;          /* Black for Dark Mode Footer */
   --shadow-sm: 0 2px 4px rgba(0,0,0,0.5);
   --shadow-md: 0 4px 6px rgba(0,0,0,0.7);
 }
@@ -278,10 +280,11 @@ nav {
 
 /* Footer */
 footer {
-  background: var(--text-dark);
-  color: var(--white);
+  background: var(--footer-bg);
+  color: #ffffff !important; /* Force white text in both modes */
   padding: 60px 0 20px;
   margin-top: auto;
+  transition: background-color 0.3s;
 }
 
 .footer-content {
@@ -296,5 +299,5 @@ footer {
   padding-top: 20px;
   border-top: 1px solid rgba(255,255,255,0.1);
   font-size: 0.9rem;
-  color: #aaa;
+  color: rgba(255,255,255,0.7); /* Light gray for copyright */
 }
