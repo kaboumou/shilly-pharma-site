@@ -541,6 +541,11 @@ html[data-theme="dark"] footer {
     color: white;
 }
 
+/* Fix: Footer headings must be white in both modes because footer bg is dark */
+footer h3, footer h4 {
+    color: #ffffff !important;
+}
+
 /* Catalog Toolbar */
 .catalog-toolbar {
     position: sticky;
@@ -595,3 +600,48 @@ html[data-theme="dark"] footer {
     width: 16px;
     height: 16px;
 }
+
+/* =========================================
+   CATALOG GRID (P0 FIX - 3/2/1 columns)
+   ========================================= */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+@media (min-width: 640px) {
+  .catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .catalog-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Product card image area - single centered image */
+.product-media {
+  background: #f5f7f8;
+  border-radius: 12px 12px 0 0;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+html[data-theme="dark"] .product-media {
+  background: var(--surface-inset);
+}
+
+.product-media img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+

@@ -1,4 +1,16 @@
 import './style.css'
+import { products } from './src/data/products.js';
+import { renderCatalog } from './src/logic/catalog.js';
+import { initPDP } from './src/logic/pdp.js';
+
+// Route Detection & Init
+const path = window.location.pathname;
+if (path.includes('products.html')) {
+    renderCatalog(products);
+}
+if (path.includes('product.html')) {
+    initPDP();
+}
 
 console.log('Shilly Pharma App Loaded');
 
