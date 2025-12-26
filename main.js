@@ -4,11 +4,12 @@ import { renderCatalog } from './src/logic/catalog.js';
 import { initPDP } from './src/logic/pdp.js';
 
 // Route Detection & Init
-const path = window.location.pathname;
-if (path.includes('products.html')) {
+// Using DOM element presence is more robust than URL path checks for static deploys
+if (document.getElementById('products-phase1') || document.getElementById('products-phase2')) {
     renderCatalog(products);
 }
-if (path.includes('product.html')) {
+
+if (document.getElementById('product-detail-container')) {
     initPDP();
 }
 
