@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Shilly Pharma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .form-section {
+            background: var(--surface-1);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-1);
+            box-shadow: var(--shadow-1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        label {
+            display: block;
+            margin-bottom: var(--space-sm);
+            font-weight: 500;
+            color: var(--text-1);
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-1);
+            border-radius: var(--radius-md);
+            background: var(--surface-inset);
+            color: var(--text-1);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--brand-primary);
+            box-shadow: 0 0 0 3px rgba(0, 118, 128, 0.1);
+        }
+
+        .product-row {
+            display: flex;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+            align-items: center;
+        }
+
+        .product-row select {
+            flex: 2;
+        }
+
+        .product-row input[type="number"] {
+            width: 100px;
+        }
+
+        .remove-row {
+            color: #ef4444;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .remove-row:hover {
+            opacity: 0.8;
+        }
+
+        .success-message {
+            background: #ecfdf5;
+            color: #065f46;
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-md);
+            display: none;
+            border: 1px solid #a7f3d0;
+        }
+
+        .error-message {
+            background: #fef2f2;
+            color: #991b1b;
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-md);
+            display: none;
+            border: 1px solid #fecaca;
+        }
+
+        /* Honey pot */
+        .hp-field {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z"></path>
+                        <path d="M2 17L12 22L22 17"></path>
+                        <path d="M2 12L12 17L22 12"></path>
+                    </svg>
+                    Shilly Pharma
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="partnerships.html">Partnerships</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button data-theme-toggle class="theme-toggle" aria-label="Toggle Dark Mode">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="display:none;">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                    <button id="menu-toggle" class="menu-toggle" aria-label="Toggle Menu">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="padding-bottom: 20px;">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>Request a quote or discuss partnership opportunities.</p>
+            </div>
+        </section>
+
+        <section class="container" style="padding-bottom: 80px;">
+            <div class="form-section">
+                <div id="success-message" class="success-message">
+                    <strong>Thank you!</strong> Your request has been sent successfully. Our team will contact you
+                    shortly.
+                </div>
+                <div id="error-message" class="error-message">
+                    <strong>Something went wrong.</strong> Please check your connection and try again, or email us
+                    directly at info@shillypharma.com.
+                </div>
+
+                <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                    <!-- Netlify Honeypot (spam protection) -->
+                    <input type="hidden" name="form-name" value="contact">
+                    <p class="hp-field">
+                        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                    </p>
+                    <!-- Legacy Honeypot -->
+                    <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off">
+
+                    <div class="grid grid-2" style="gap: var(--space-md); margin-bottom: var(--space-lg);">
+                        <div>
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-2" style="gap: var(--space-md); margin-bottom: var(--space-lg);">
+                        <div>
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+234 706 325 2720">
+                        </div>
+                        <div>
+                            <label for="company">Company / Clinic</label>
+                            <input type="text" id="company" name="company" placeholder="Organization Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product_request_free">Product Request (Optional)</label>
+                        <p style="font-size: 0.85rem; color: var(--text-2); margin-bottom: 8px;">Describe what you need,
+                            or use the builder below to add specific items.</p>
+                        <textarea id="product_request_free" name="product_request_free" rows="2"
+                            placeholder="E.g. I need 20 cases of Silver Alginate..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Itemized Request (Builder)</label>
+                        <div id="product-list"
+                            style="border: 1px solid var(--border-1); padding: 16px; border-radius: var(--radius-md); background: var(--surface-0);">
+                            <!-- Dynamic Rows go here -->
+                        </div>
+                        <button type="button" id="add-product-btn" class="btn btn-outline"
+                            style="font-size: 0.9rem; margin-top: 12px;">+ Add Product</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Additional Notes / Requirements</label>
+                        <textarea id="notes" name="notes" rows="4"
+                            placeholder="Tell us about your volume needs or specific questions..."></textarea>
+                    </div>
+
+                    <div style="text-align: right;">
+                        <button type="submit" class="btn btn-primary" id="submit-btn">Send Inquiry</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Shilly Pharma</h3>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+                        Committed to excellence in patient care.
+                    </p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                style="text-align: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; color: rgba(255,255,255,0.5);">
+                &copy; 2025 Shilly Pharma. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+
+    <script type="module" src="main.js"></script>
+    <script type="module">
+        import { products as catalog } from '/src/data/products.js';
+
+        // Flatten product catalog into simple options list
+        // Format: "Product Name - Size" (if sizes exist) OR "Product Name"
+        let products = [];
+
+        catalog.forEach(p => {
+            // We include all items, even services/placeholders if they have a name
+            // For items like "Colostomy Care", they have no sizes, so just the name.
+            if (p.sizes && p.sizes.length > 0) {
+                p.sizes.forEach(size => {
+                    products.push(`${p.name} - ${size}`);
+                });
+            } else {
+                products.push(p.name);
+            }
+        });
+
+        // Alphabetical sort for easier finding
+        products.sort((a, b) => a.localeCompare(b));
+
+        // Product Builder Logic
+        const productList = document.getElementById('product-list');
+        const addBtn = document.getElementById('add-product-btn');
+
+        function createRow() {
+            const row = document.createElement('div');
+            row.className = 'product-row';
+
+            let options = products.map(p => `<option value="${p}">${p}</option>`).join('');
+
+            row.innerHTML = `
+                <select name="products[]">
+                    <option value="" disabled selected>Select Product</option>
+                    ${options}
+                </select>
+                <input type="number" name="quantities[]" placeholder="Qty" min="1">
+                <span class="remove-row" title="Remove">&times;</span>
+            `;
+
+            row.querySelector('.remove-row').addEventListener('click', () => {
+                row.remove();
+            });
+
+            productList.appendChild(row);
+        }
+
+        addBtn.addEventListener('click', createRow);
+
+        // Form Handler
+        const form = document.getElementById('contact-form');
+        const successMsg = document.getElementById('success-message');
+        const errorMsg = document.getElementById('error-message');
+        const submitBtn = document.getElementById('submit-btn');
+
+        // Pre-fill from URL
+        // Note: URL params might be just "product id" or "name". 
+        // We attempt fuzzy match against our new detailed list.
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productParam = urlParams.get('product');
+            if (productParam) {
+                // Add a row
+                createRow();
+                // Find the select in that row (last row)
+                const rows = productList.children;
+                if (rows.length > 0) {
+                    const lastRow = rows[rows.length - 1];
+                    const select = lastRow.querySelector('select');
+
+                    // Fuzzy match: check if option contains param or param contains option (ignoring case)
+                    // Since param might be "allevyn-life" (ID) and option is "Allevyn Life Foam Dressing - Sacrum"
+                    // We need to look up the Name via ID from catalog first?
+                    // Let's try to map ID -> Name from catalog, then search in options.
+
+                    let targetName = productParam; // default to raw param
+                    const foundProduct = catalog.find(p => p.id === productParam);
+                    if (foundProduct) {
+                        targetName = foundProduct.name;
+                    }
+
+                    for (let opt of select.options) {
+                        if (opt.value.toLowerCase().includes(targetName.toLowerCase())) {
+                            select.value = opt.value;
+                            break;
+                        }
+                    }
+                }
+            }
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            successMsg.style.display = 'none';
+            errorMsg.style.display = 'none';
+
+            const formData = new FormData(form);
+            
+            // Consolidate product builder items into a single field for Netlify
+            const productRows = productList.querySelectorAll('.product-row');
+            let itemizedProducts = [];
+            productRows.forEach(row => {
+                const productSelect = row.querySelector('select');
+                const qtyInput = row.querySelector('input[type="number"]');
+                if (productSelect && productSelect.value) {
+                    const qty = qtyInput ? qtyInput.value || 1 : 1;
+                    itemizedProducts.push(`${productSelect.value} (Qty: ${qty})`);
+                }
+            });
+            if (itemizedProducts.length > 0) {
+                formData.set('itemized_products', itemizedProducts.join('\n'));
+            }
+
+            try {
+                // Submit to Netlify Forms
+                const response = await fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                });
+
+                if (response.ok) {
+                    successMsg.style.display = 'block';
+                    form.reset();
+                    productList.innerHTML = '';
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (err) {
+                console.error(err);
+                errorMsg.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Inquiry';
+            }
+        });
+    </script>
+</body>
+
+</html>

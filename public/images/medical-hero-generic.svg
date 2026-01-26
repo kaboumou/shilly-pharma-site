@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none" role="img" aria-label="Abstract medical background">
+  <defs>
+    <linearGradient id="main-grad" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E0F2F1"/>
+      <stop offset="1" stop-color="#B2DFDB"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(0, 150, 136, 0.05)" stroke-width="1"/>
+    </pattern>
+    <filter id="soft-glow">
+      <feGaussianBlur stdDeviation="20" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="1200" height="800" fill="url(#main-grad)"/>
+  <rect width="1200" height="800" fill="url(#grid)"/>
+  
+  <!-- Abstract geometric shapes -->
+  <circle cx="1000" cy="200" r="300" fill="rgba(255,255,255,0.4)" filter="url(#soft-glow)"/>
+  <circle cx="100" cy="700" r="200" fill="rgba(38, 166, 154, 0.1)"/>
+  
+  <!-- Flowing curves representing care/fluidity -->
+  <path d="M0 600 Q 300 500 600 650 T 1200 550 V 800 H 0 Z" fill="rgba(255,255,255,0.3)"/>
+  <path d="M0 700 Q 400 650 800 750 T 1200 700 V 800 H 0 Z" fill="rgba(0, 121, 107, 0.05)"/>
+  
+  <!-- Subtle medical cross accents -->
+  <g fill="rgba(0, 150, 136, 0.1)">
+    <rect x="800" y="100" width="20" height="60" rx="2"/>
+    <rect x="780" y="120" width="60" height="20" rx="2"/>
+    
+    <rect x="900" y="400" width="15" height="45" rx="2"/>
+    <rect x="885" y="415" width="45" height="15" rx="2"/>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+# Force Rebuild Verification
+
+Build timestamp: 2025-12-21 12:15:00 PST
+Fix applied: html[data-theme="light"] CSS rule added
+
+THE ACTUAL FIX:
+- Added explicit light mode CSS variables
+- This overrides system dark mode when user clicks toggle
+- Previous fixes were JS-side but the CSS was missing
+
+If you can read this file in your browser at `/BUILD_INFO.txt`, your deployment is updated.

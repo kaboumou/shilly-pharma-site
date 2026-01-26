@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products | Shilly Pharma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Local overrides for Products Page if needed */
+    .filter-pill {
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      background: var(--surface-inset);
+      color: var(--text-2);
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .filter-pill:hover {
+      background: var(--surface-2);
+      color: var(--text-1);
+    }
+
+    .filter-pill.active {
+      background: var(--brand-primary);
+      color: var(--text-on-brand);
+    }
+
+    html[data-theme="dark"] .filter-pill {
+      background: var(--surface-1);
+      border-color: var(--border-1);
+    }
+
+    html[data-theme="dark"] .filter-pill.active {
+      border-color: transparent;
+    }
+
+    .section-header {
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-sm);
+      border-bottom: 2px solid var(--border-1);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .section-header h2 {
+      margin-bottom: 0;
+      color: var(--brand-primary);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z"></path>
+            <path d="M2 17L12 22L22 17"></path>
+            <path d="M2 12L12 17L22 12"></path>
+          </svg>
+          Shilly Pharma
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html" class="active">Products</a></li>
+          <li><a href="partnerships.html">Partnerships</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button data-theme-toggle class="theme-toggle" aria-label="Toggle Dark Mode">
+            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <button id="menu-toggle" class="menu-toggle" aria-label="Toggle Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Catalog Toolbar (Sticky) -->
+  <div class="catalog-toolbar">
+    <div class="container toolbar-inner">
+      <div class="search-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="product-search" class="search-input" placeholder="Search products...">
+      </div>
+      <div class="filter-group" style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px;">
+        <button class="filter-pill active" data-filter="all">All Products</button>
+        <button class="filter-pill" data-filter="phase1">Wound Care</button>
+        <button class="filter-pill" data-filter="phase2">Wellness</button>
+        <button class="filter-pill" data-filter="phase3">Ostomy</button>
+        <button class="filter-pill" data-filter="phase4">Accessories</button>
+      </div>
+    </div>
+  </div>
+
+  <main style="padding-bottom: 80px;">
+    <section class="hero" style="padding: 40px 0; min-height: auto; background: var(--surface-0);">
+      <div class="container" style="text-align: left;">
+        <h1>Our Solutions</h1>
+        <p style="margin: 0; max-width: 600px;">Comprehensive solutions across Wound Care, Wellness, and Ostomy.</p>
+      </div>
+    </section>
+
+    <!-- PHASE 1: WOUND CARE -->
+    <section id="phase1" class="product-section container" style="scroll-margin-top: 140px; margin-top: 40px;">
+      <div class="section-header">
+        <h2>Advanced Wound Care</h2>
+      </div>
+
+      <h3
+        style="margin-top: 30px; color: var(--text-2); border-left: 4px solid var(--brand-primary); padding-left: 12px;">
+        Dressings & Hydrogels</h3>
+      <div id="products-phase1" class="catalog-grid" style="margin-top: 20px;">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+    <!-- PHASE 2: WELLNESS -->
+    <section id="phase2" class="product-section container" style="scroll-margin-top: 140px; margin-top: 60px;">
+      <div class="section-header">
+        <h2>Wellness & Lifestyle</h2>
+        <span class="badge" style="background: var(--surface-2); color: var(--text-1)">Phase 2</span>
+      </div>
+
+      <div id="products-phase2" class="catalog-grid">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+    <!-- PHASE 3: OSTOMY -->
+    <section id="phase3" class="product-section container" style="scroll-margin-top: 140px; margin-top: 60px;">
+      <div class="section-header">
+        <h2>Ostomy Care</h2>
+      </div>
+      <div id="products-phase3" class="catalog-grid">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+    <!-- PHASE 4: OSTOMY ACCESSORIES -->
+    <section id="phase4" class="product-section container" style="scroll-margin-top: 140px; margin-top: 60px;">
+      <div class="section-header">
+        <h2>Ostomy Accessories</h2>
+        <span class="badge" style="background: var(--surface-2); color: var(--text-1)">Baseplates & Barriers</span>
+      </div>
+      <div id="products-phase4" class="catalog-grid">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>Shilly Pharma</h3>
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+            Committed to excellence in patient care.
+          </p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="partnerships.html">Partnerships</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="disclaimer.html">Medical Disclaimer</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:info@shillypharma.com">info@shillypharma.com</a></li>
+            <li><a href="tel:+2347063252720">+234 706 325 2720</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        style="margin-top: 32px; padding: 16px; background: rgba(255,255,255,0.05); border-radius: 8px; font-size: 0.8rem; color: rgba(255,255,255,0.6); line-height: 1.5;">
+        <strong>Medical Disclaimer:</strong> The content on this site is for informational purposes only and is not a
+        substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or
+        other qualified health provider with any questions you may have regarding a medical condition. <a
+          href="disclaimer.html" style="color: var(--brand-primary); text-decoration: underline;">Read full
+          disclaimer</a>.
+      </div>
+
+      <div
+        style="margin-top: 16px; padding: 16px; background: rgba(255,255,255,0.05); border-radius: 8px; font-size: 0.8rem; color: rgba(255,255,255,0.6); line-height: 1.5;">
+        <strong>Privacy Policy:</strong> We collect personal and health information solely to provide consultations and
+        fulfill orders. We prioritize your confidentiality and do not sell your data to third parties. <a
+          href="privacy.html" style="color: var(--brand-primary); text-decoration: underline;">Read full policy</a>.
+      </div>
+      <div
+        style="text-align: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; color: rgba(255,255,255,0.5);">
+        &copy; 2025 Shilly Pharma. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+
+  <script type="module" src="main.js"></script>
+</body>
+
+</html>

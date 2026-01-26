@@ -1,0 +1,18 @@
+<!-- Save as: /images/about/about-illustration.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500" fill="none" role="img" aria-label="Shilly Pharma care illustration">
+  <defs>
+    <linearGradient id="g" x1="80" y1="60" x2="820" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#16B3A6" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#0B7D86" stop-opacity="0.05"/>
+    </linearGradient>
+  </defs>
+  <rect x="70" y="55" width="760" height="390" rx="28" fill="url(#g)" stroke="rgba(255,255,255,0.10)" stroke-width="2"/>
+  <circle cx="210" cy="250" r="70" fill="rgba(22,179,166,0.18)" stroke="rgba(22,179,166,0.65)" stroke-width="3"/>
+  <path d="M210 210v80M170 250h80" stroke="rgba(22,179,166,0.9)" stroke-width="10" stroke-linecap="round"/>
+  <rect x="330" y="160" width="420" height="60" rx="16" fill="rgba(255,255,255,0.10)"/>
+  <rect x="330" y="240" width="360" height="44" rx="14" fill="rgba(255,255,255,0.08)"/>
+  <rect x="330" y="300" width="300" height="44" rx="14" fill="rgba(255,255,255,0.06)"/>
+  <text x="330" y="142" fill="rgba(255,255,255,0.85)" font-family="ui-sans-serif, system-ui" font-size="20" font-weight="700">
+    Trusted care-focused solutions
+  </text>
+</svg>
